@@ -1,15 +1,15 @@
 // RUN touch /root/.ssh/known_hosts
 // RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { execFileSync } from 'child_process';
+import * as fs from "fs";
+import * as path from "path";
+import { execFileSync } from "child_process";
 
 export function setupKnownHosts() {
-  const sshPath = path.join(process.env.HOME as any, '.ssh');
+  const sshPath = path.join(process.env.HOME as any, ".ssh");
   fs.mkdirSync(sshPath, { recursive: true });
-  const knownHostsPath = path.join(sshPath, 'known_hosts');
-  fs.closeSync(fs.openSync(knownHostsPath, 'w'));
+  const knownHostsPath = path.join(sshPath, "known_hosts");
+  fs.closeSync(fs.openSync(knownHostsPath, "w"));
   execFileSync(`ssh-keyscan github.com >> ${knownHostsPath}`);
   return knownHostsPath;
 }

@@ -1,5 +1,5 @@
-import * as path from 'path';
-import * as fs from 'fs';
+import * as path from "path";
+import * as fs from "fs";
 
 // [url "git@yd-krypto.github.com:yellowdogsoftware/yd-krypto"]
 //   insteadOf = https://github.com/yellowdogsoftware/yd-krypto
@@ -17,7 +17,7 @@ export function createEntry({ packageName, ownerName }: CreateGitConfigParams) {
 }
 
 export function createGitConfig(params: CreateGitConfigParams[]) {
-  const gitconfigPath = path.join(process.env.HOME as string, '.gitconfig');
+  const gitconfigPath = path.join(process.env.HOME as string, ".gitconfig");
 
   params.forEach(params => {
     const entry = createEntry(params);
