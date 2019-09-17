@@ -13,6 +13,8 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
   const sshPath = path.join(process.env.HOME as string, ".ssh");
   // make directory
   fs.mkdirSync(sshPath, { recursive: true });
+
+  console.log(fs.readdirSync(sshPath));
   // write private key to ssh dir
   return deployKeyData.map(({ privateKey, packageName, ownerName }) => {
     // make file name: schie__some_package__id_rsa
@@ -21,6 +23,7 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
     const filePath = path.join(sshPath, fileName);
     // write file
     fs.writeFileSync(filePath, privateKey);
+    console.log(fs.readdirSync(sshPath));
     // ssh add
     execFileSync(`ssh-add ${filePath}`);
     return filePath;
