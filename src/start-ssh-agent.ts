@@ -3,6 +3,6 @@ import cuid from 'cuid';
 
 export function startSSHAgent(socketName?: string) {
   const sockitName = socketName || cuid();
-  execSync(`ssh-agent -s -a ${sockitName}`);
+  execSync(`ssh-agent -s`);
   return sockitName;
 }
