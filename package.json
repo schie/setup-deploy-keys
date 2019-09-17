@@ -4,6 +4,8 @@
   "description": "GitHub Action to set up ssh-agent for use with Deploy Keys",
   "main": "ndex.js",
   "scripts": {
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
     "build": "tsc",
     "test": "jest"
   },
