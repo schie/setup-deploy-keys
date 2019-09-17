@@ -1,0 +1,13 @@
+name: 'Setup GitHub Deploy Key Environment'
+description: 'Sets up ssh config with deploy keys',
+author: 'Dustin Schie <dustin@schie.io>',
+inputs:
+  deployKeyData:
+    description: 'stringified JSON data:  [{ privateKey, packageName, ownerName }]'
+    required: true
+runs:
+  using: 'node12'
+  main: 'lib/index.js'
+branding:
+  icon: loader
+  color: 'yellow'
