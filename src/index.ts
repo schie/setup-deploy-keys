@@ -1,16 +1,14 @@
-import * as core from "@actions/core";
+import * as core from '@actions/core';
 
-import { addDeployKeys, DeployKeyData } from "./add-deploy-keys";
-import { createGitConfig } from "./create-git-config";
-import { createSSHConfig } from "./create-ssh-config";
-import { setupKnownHosts } from "./setup-known-hosts";
-import { startSSHAgent } from "./start-ssh-agent";
-import { getFileName } from "./utils";
+import { addDeployKeys, DeployKeyData } from './add-deploy-keys';
+import { createGitConfig } from './create-git-config';
+import { createSSHConfig } from './create-ssh-config';
+import { setupKnownHosts } from './setup-known-hosts';
+import { startSSHAgent } from './start-ssh-agent';
+import { getFileName } from './utils';
 
 function doTheThing() {
-  const deployKeyData = JSON.parse(
-    core.getInput("deployKeyData")
-  ) as DeployKeyData[];
+  const deployKeyData = JSON.parse(core.getInput('deployKeyData')) as DeployKeyData[];
 
   const sshConfigData = deployKeyData.map(({ ownerName, packageName }) => ({
     hostAlias: packageName,
