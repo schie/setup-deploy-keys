@@ -1,6 +1,6 @@
-import { execFileSync } from 'child_process';
+import { execFileSync, execSync } from 'child_process';
 
 export function startSSHAgent() {
-  const execOut = execFileSync('ssh-agent', ['-s']);
+  const execOut = execSync('eval "$(ssh-agent -s)"');
   return execOut;
 }
