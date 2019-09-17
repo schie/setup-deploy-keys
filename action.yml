@@ -1,6 +1,6 @@
 name: 'Setup GitHub Deploy Key Environment'
-description: 'Sets up ssh config with deploy keys',
-author: 'Dustin Schie <dustin@schie.io>',
+description: 'Sets up ssh config with deploy keys'
+author: 'Dustin Schie <dustin@schie.io>'
 inputs:
   deployKeyData:
     description: 'stringified JSON data:  [{ privateKey, packageName, ownerName }]'
