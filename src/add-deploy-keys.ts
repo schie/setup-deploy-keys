@@ -1,7 +1,7 @@
-import * as fs from "fs";
-import * as path from "path";
-import { execFileSync } from "child_process";
-import { getFileName } from "./utils";
+import * as fs from 'fs';
+import * as path from 'path';
+import { execSync } from 'child_process';
+import { getFileName } from './utils';
 
 export interface DeployKeyData {
   privateKey: string;
@@ -10,7 +10,7 @@ export interface DeployKeyData {
 }
 
 export function addDeployKeys(deployKeyData: DeployKeyData[]) {
-  const sshPath = path.join(process.env.HOME as string, ".ssh");
+  const sshPath = path.join(process.env.HOME as string, '.ssh');
   // make directory
   fs.mkdirSync(sshPath, { recursive: true });
 
@@ -25,7 +25,7 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
     fs.writeFileSync(filePath, privateKey);
     console.log(fs.readdirSync(sshPath));
     // ssh add
-    execFileSync(`ssh-add ${filePath}`);
+    execSync(`ssh-add ${filePath}`);
     return filePath;
   });
 }
