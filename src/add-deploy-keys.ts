@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { getFileName } from './utils';
 
 export interface DeployKeyData {
@@ -14,7 +14,6 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
   // make directory
   fs.mkdirSync(sshPath, { recursive: true });
 
-  console.log(fs.readdirSync(sshPath));
   // write private key to ssh dir
   return deployKeyData.map(({ privateKey, packageName, ownerName }) => {
     // make file name: schie__some_package__id_rsa
@@ -25,7 +24,7 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
     fs.writeFileSync(filePath, privateKey);
     console.log(fs.readdirSync(sshPath));
     // ssh add
-    execSync(`ssh-add ${filePath}`);
+    execFileSync('ssh-add', [filePath]);
     return filePath;
   });
 }

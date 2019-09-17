@@ -17,8 +17,6 @@ export function createEntry({ hostAlias, identityFileName }) {
 export function createSSHConfig(params: [CreateSessionConfigParams]) {
   const homeSSH = path.join(process.env.HOME as string, '.ssh');
   const sshConfigPath = path.join(homeSSH, 'config');
-
-  // console.log(`Adding GitHub.com keys to ${sshConfigPath}`);
   fs.mkdirSync(homeSSH, { recursive: true });
   params.forEach(params => {
     const entry = createEntry(params);
