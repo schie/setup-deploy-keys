@@ -22,9 +22,6 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
     const filePath = path.join(sshPath, fileName);
     // write file
     fs.writeFileSync(filePath, privateKey);
-    console.log(fs.readdirSync(sshPath));
-    // ssh add
-    execFileSync('ssh-add', [filePath]);
     return filePath;
   });
 }

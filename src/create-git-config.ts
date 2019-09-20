@@ -1,11 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
 
-// [url "git@yd-krypto.github.com:yellowdogsoftware/yd-krypto"]
-//   insteadOf = https://github.com/yellowdogsoftware/yd-krypto
-// [url "git@graphql-type-guid.github.com:yellowdogsoftware/graphql-type-guid"]
-//   insteadOf = https://github.com/yellowdogsoftware/graphql-type-guid
-
 interface CreateGitConfigParams {
   packageName: string;
   ownerName: string;
