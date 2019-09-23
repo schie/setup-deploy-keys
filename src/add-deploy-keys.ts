@@ -12,6 +12,7 @@ export function addDeployKeys(deployKeyData: DeployKeyData[]) {
     const filePath = path.join(sshPath, identityFileName);
     // write file
     fs.writeFileSync(filePath, privateKey);
+    fs.chmodSync(filePath, fs.constants.S_IRUSR);
     return filePath;
   });
 }
