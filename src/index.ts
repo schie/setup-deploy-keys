@@ -1,18 +1,41 @@
 import * as core from '@actions/core';
 
-import { addDeployKeys, DeployKeyData } from './add-deploy-keys';
+import { addDeployKeys } from './add-deploy-keys';
 import { createSSHConfig } from './create-ssh-config';
-import { getFileName } from './utils';
+import { setupKnownHosts } from './setup-known-hosts';
+import {
+  getFileName,
+  DeployKeyData,
+  CreateSessionConfigParams,
+  EntryData,
+  InputData
+} from './utils';
 
 function doTheThing() {
-  const deployKeyData = JSON.parse(core.getInput('deployKeyData')) as DeployKeyData[];
-  const sshConfigData = deployKeyData.map(({ ownerName, packageName }) => ({
-    hostAlias: packageName,
-    identityFileName: getFileName(ownerName, packageName)
-  }));
+  const inputData = JSON.parse(core.getInput('deployKeyData')) as InputData[];
+  const sshConfigData: CreateSessionConfigParams[] = [];
+  const knownHostData: EntryData[] = [];
+  const deployKeyData: DeployKeyData[] = [];
 
-  createSSHConfig(sshConfigData as any);
+  inputData.forEach(({ ownerName, packageName, privateKey, publicKey, hostAlias }) => {
+    const identityFileName = getFileName(ownerName, packageName);
+    sshConfigData.push({
+      identityFileName,
+      hostAlias
+    });
+    knownHostData.push({
+      publicKey,
+      hostAlias
+    });
+    deployKeyData.push({
+      identityFileName,
+      privateKey
+    });
+  });
+
+  createSSHConfig(sshConfigData);
   addDeployKeys(deployKeyData);
+  setupKnownHosts(knownHostData);
 }
 
 doTheThing();
