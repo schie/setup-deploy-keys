@@ -18,16 +18,6 @@ function doTheThing() {
   const deployKeyData: DeployKeyData[] = [];
 
   inputData.forEach(({ ownerName, packageName, privateKey, publicKey, hostAlias }) => {
-    console.log(ownerName);
-    console.log('=');
-    console.log(packageName);
-    console.log('=');
-    console.log(privateKey);
-    console.log('=');
-    console.log(publicKey);
-    console.log('=');
-    console.log(hostAlias);
-    console.log('-------------');
     const identityFileName = getFileName(ownerName, packageName);
     sshConfigData.push({
       identityFileName,
