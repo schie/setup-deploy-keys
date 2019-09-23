@@ -3,7 +3,7 @@ description: 'Sets up ssh config with deploy keys'
 author: 'Dustin Schie <dustin@schie.io>'
 inputs:
   deployKeyData:
-    description: 'stringified JSON data:  [{ privateKey, packageName, ownerName }]'
+    description: 'stringified JSON data:  [{ privateKey, publicKey, packageName, ownerName, hostAlias }]'
     required: true
 runs:
   using: 'node12'
