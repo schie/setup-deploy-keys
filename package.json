@@ -6,7 +6,10 @@
   "scripts": {
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
+    "format:staged": "pretty-quick --staged",
+    "prebuild": "yarn install && rimraf lib",
     "build": "tsc",
+    "prune:prod-only": "yarn install --production",
     "test": "jest"
   },
   "author": "Dustin Schie <dustin@schie.io>",
