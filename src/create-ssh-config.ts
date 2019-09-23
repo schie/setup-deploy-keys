@@ -7,15 +7,14 @@ export function createEntry({ hostAlias, identityFileName }: CreateSessionConfig
     User git
     Hostname github.com
     IdentitiesOnly yes
-    IdentityFile ${path.join(process.env.HOME as string, '.ssh', identityFileName)}\n`;
+    IdentityFile ${path.join(process.env.HOME as string, '.ssh', identityFileName)}\n\n`;
 }
 
 export function createSSHConfig(params: CreateSessionConfigParams[]) {
   const homeSSH = path.join(process.env.HOME as string, '.ssh');
   const sshConfigPath = path.join(homeSSH, 'config');
   fs.mkdirSync(homeSSH, { recursive: true });
-  params.forEach(params => {
-    const entry = createEntry(params);
+  ['StrictHostKeyChecking no\n\n', ...params.map(params => createEntry(params))].forEach(entry => {
     fs.appendFileSync(sshConfigPath, entry);
   });
 
