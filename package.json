@@ -10,6 +10,7 @@
     "prebuild": "yarn install && rimraf lib",
     "build": "tsc",
     "prune:prod-only": "yarn install --production",
+    "release:notes": "npx github-release-notes r -P",
     "test": "jest"
   },
   "author": "Dustin Schie <dustin@schie.io>",
