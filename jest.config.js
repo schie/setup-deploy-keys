@@ -7,5 +7,6 @@ module.exports = {
   // },
   // setupFiles: ['dotenv/config'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
-  roots: ['<rootDir>/src']
+  roots: ['<rootDir>/src'],
+  testPathIgnorePatterns: ['<rootDir>/src/__tests__/factories.ts']
 };

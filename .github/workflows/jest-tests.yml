@@ -1,0 +1,19 @@
+name: Jest Tests
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  performTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out repo
+        uses: actions/checkout@v1
+      - name: setting up node environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: install dependencies
+        run: yarn
+      - name: test
+        run: yarn test
