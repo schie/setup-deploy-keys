@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { EntryData } from './utils';
 
-function createEntry({ publicKey, hostAlias }: EntryData) {
+export function createEntry({ publicKey, hostAlias }: EntryData) {
   return `${hostAlias} ${publicKey}\n`;
 }
 
