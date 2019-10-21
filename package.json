@@ -16,7 +16,7 @@
   "author": "Dustin Schie <dustin@schie.io>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.1.0",
+    "@actions/core": "^1.2.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
