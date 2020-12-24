@@ -357,10 +357,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/lodash@^4.14.140":
-  version "4.14.140"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.140.tgz#8d2bd55e6a22221cd662bbb85969eb00ec283da6"
-  integrity sha512-OU57uYCUUv9s8lgQTYuQlL6xkttWtz8VLCJSnt8ikla9+UXqMGJ8adCprSw7egJHSHwGvFpGhfpQDtHm/NQ3Cw==
+"@types/lodash@^4.14.166":
+  version "4.14.166"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.166.tgz#07e7f2699a149219dbc3c35574f126ec8737688f"
+  integrity sha512-A3YT/c1oTlyvvW/GQqG86EyqWNrT/tisOIh2mW3YCgcx71TNjiTZA3zYZWA5BCmtsOTXjhliy4c4yEkErw6njA==
 
 "@types/node@^12.7.9":
   version "12.7.9"
